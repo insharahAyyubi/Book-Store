@@ -1,0 +1,83 @@
+[
+  {
+    "id": 1,
+    "title": "The Alchemist",
+    "description": "A young shepherd's journey to fulfill his dreams and find his treasure, teaching him valuable life lessons along the way.",
+    "price": 0.00,
+    "category": ["Fiction", "Adventure"],
+    "img": "alchemist.png",
+    "isFree": "true"
+  },
+  {
+    "id": 2,
+    "title": "The Power of Now",
+    "description": "A spiritual guide to living in the present moment, letting go of negativity, and finding inner peace.",
+    "price": 0.00,
+    "category": ["Self-Help", "Spirituality"],
+    "img": "pofn.jpg",
+    "isFree": "true"
+  },
+  {
+    "id": 3,
+    "title": "To Kill a Mockingbird",
+    "description": "A Pulitzer Prize-winning novel about racial injustice, tolerance, and the loss of innocence in a small Alabama town.",
+    "price": 0.00,
+    "category": ["Classic", "Fiction"],
+    "img": "kill_bird.jpg",
+    "isFree": "true"
+  },
+  {
+    "id": 4,
+    "title": "The 7 Habits of Highly Effective People",
+    "description": "A practical guide to personal and professional development, teaching readers how to adopt habits that lead to success.",
+    "price": 0.00,
+    "category": ["Self-Help", "Personality"],
+    "img": "7_habbits.jpg",
+    "isFree": "true"
+  },
+  {
+    "id": 5,
+    "title": "The Hunger Games",
+    "description": "In a dystopian future, a young girl must fight for survival in a deadly game controlled by the oppressive government.",
+    "price": 9.99,
+    "category": ["Young Adult", "Dystopian"],
+    "img": "the-hunger-games-trilogy.jpg",
+    "isFree": "false"
+  },
+  {
+    "id": 6,
+    "title": "The Nightingale",
+    "description": "A heart-wrenching novel about two sisters living in France during World War II, struggling to survive and resist the Nazi occupation.",
+    "price": 16.99,
+    "category": ["Historical Fiction", "Romance"],
+    "img": "nightingale.jpg",
+    "isFree": "false"
+  },
+  {
+    "id": 7,
+    "title": "Sapiens: A Brief History of Humankind",
+    "description": "A sweeping narrative that covers the entire history of humankind, from the emergence of Homo sapiens to the present day.",
+    "price": 19.99,
+    "category": ["Non-Fiction", "History"],
+    "img": "sapiens.jpg",
+    "isFree": "false"
+  },
+  {
+    "id": 8,
+    "title": "The Girl with the Dragon Tattoo",
+    "description": "A gripping mystery about a journalist and a hacker who team up to solve a decades-old murder mystery, uncovering dark secrets along the way.",
+    "price": 14.99,
+    "category": ["Mystery", "Thriller"],
+    "img": "the-girl-with-the-dragon-tattoo.jpg",
+    "isFree": "false"
+  },
+  {
+    "id": 9,
+    "title": "Daring Greatly",
+    "description": "A inspiring guide to embracing vulnerability, shame, and imperfection, and living a more wholehearted and fulfilling life.",
+    "price": 15.99,
+    "category": ["Self-Help", "Personality"],
+    "img": "daring_greatly.jpg",
+    "isFree": "false"
+  }
+]
