@@ -2,15 +2,59 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Login from "./Login";
 import { useForm } from "react-hook-form";
+import axios from "axios";
+import { toast } from "react-hot-toast";
+
+// react hook form library for form usage
+// react router dom for navigation
+// useForm: A custom hook provided by the react-hook-form library
+// that helps manage form state and validation in React applications.
+// handleSubmit is a function provided by the useForm hook from the react-hook-form library.
+// It wraps your custom onSubmit function and handles the validation of the form before calling it.
+
+// The register function from the library is called with the name of the input field as an argument.
+// This name will be used as the key in the form data object.
+// You can also set validations here
 
 const Signup = () => {
+  const navigate = useNavigate();
+
+  const navg = () => {
+    navigate("/", { replace: true });
+    setTimeout(() => {
+      document.getElementById("my_modal_6").checked = true;
+    }, 300);
+  };
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
-  const navigate = useNavigate();
+  const onSubmit = async (data) => {
+    const userInfo = {
+      name: data.name,
+      email: data.email,
+      password: data.password,
+    };
+    try {
+      const res = await axios.post(
+        "http://localhost:4001/user/signup",
+        userInfo
+      );
+      // console.log(res.data);
+
+      if (res.data.message === "User already exists") {
+        toast.success("User already exists. Please use a different email.");
+      } else if (res.data.message === "User created successfully") {
+        toast.success("Signup Successful");
+        navg();
+      }
+    } catch (err) {
+      console.log(err);
+      toast.error("Error: " + err.response.data.message || "An error occurred");
+    }
+  };
 
   return (
     <>
@@ -76,12 +120,7 @@ const Signup = () => {
                 <label
                   className="text-blue-700 font-semibold underline cursor-pointer"
                   htmlFor="my_modal_6"
-                  onClick={() => {
-                    navigate("/", { replace: true });
-                    setTimeout(() => {
-                      document.getElementById("my_modal_6").checked = true;
-                    }, 300); // open the modal after navigation
-                  }}
+                  onClick={navg}
                 >
                   Login
                 </label>

@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import axios from "axios";
+import { toast } from "react-hot-toast";
 
 const Login = () => {
   const {
@@ -8,7 +10,31 @@ const Login = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+
+  const onSubmit = async (data) => {
+    const userInfo = {
+      email: data.email,
+      password: data.password,
+    };
+    const res = await axios
+      .post("http://localhost:4001/user/login", userInfo)
+      // console.log(res.data);
+
+      .then((res) => {
+        if (res.data) toast.success("Login Successful");
+        localStorage.setItem("Users", JSON.stringify(res.data.user));
+        setTimeout(() => {
+          window.location.reload();
+        }, 1000);
+      })
+      .catch((err) => {
+        if (err.response) {
+          console.log(err);
+          toast.error("Error: " + err.response.data.message);
+        }
+      });
+  };
+
   return (
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -38,9 +64,7 @@ const Login = () => {
                 {...register("password", { required: true })}
               />
               {errors.password && (
-                <span className="text-red-500">
-                  This field is required
-                </span>
+                <span className="text-red-500">This field is required</span>
               )}
             </div>
             <div className="flex items-center justify-between mt-6 mb-2">
