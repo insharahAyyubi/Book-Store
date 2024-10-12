@@ -15,16 +15,18 @@ const port = process.env.port || 4000;
 // connect to mongoDB
 const URI = process.env.mongoDB_URI;
 
-try {
-  mongoose.connect(URI);
-  console.log("Connected to MongoDB");
-} catch (error) {
-  console.log(error);
-}
+mongoose
+  .connect(URI)
+  .then(() => {
+    console.log("Connected to MongoDB");
+  })
+  .catch((err) => {
+    console.error("MongoDB connection error:", err);
+  });
 
 app.use("/book", bookRoute);
 app.use("/user", userRoute);
 
-app.listen(port, '0.0.0.0', () => {
+app.listen(port, "0.0.0.0", () => {
   console.log(`Example app listening on port ${port}`);
 });
