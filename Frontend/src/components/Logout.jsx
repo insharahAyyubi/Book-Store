@@ -15,7 +15,7 @@ export default function Logout() {
       toast.success("Logged out successfully!");
       setTimeout(() => {
         window.location.reload();
-      }, 1000); 
+      }, 1000);
     } catch (error) {
       toast.error("Error: " + error.message);
     }
