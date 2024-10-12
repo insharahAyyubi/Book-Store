@@ -25,10 +25,6 @@ try {
 app.use("/book", bookRoute);
 app.use("/user", userRoute);
 
-app.get("/", (req, res) => {
-  res.send("bella!");
-});
-
 app.listen(port, '0.0.0.0', () => {
   console.log(`Example app listening on port ${port}`);
 });
