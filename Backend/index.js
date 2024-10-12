@@ -4,8 +4,6 @@ import mongoose from "mongoose";
 import bookRoute from "./route/book_route.js";
 import userRoute from "./route/user_route.js";
 import cors from "cors";
-import path from 'path';
-import { fileURLToPath } from 'url';
 
 const app = express();
 
@@ -23,15 +21,6 @@ mongoose
   .catch((err) => {
     console.error("MongoDB connection error:", err);
   });
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-app.use(express.static(path.join(__dirname, "../Frontend/dist")));
-
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../Frontend", "index.html"));
-});
 
 app.use("/book", bookRoute);
 app.use("/user", userRoute);
