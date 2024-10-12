@@ -1,6 +1,6 @@
 import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
-import Home from "./Home/Home";
+import Home from "./components/Home/Home";
 import Courses from "./components/Courses/Courses";
 import Signup from "./components/Signup";
 import { Toaster } from "react-hot-toast";
@@ -8,7 +8,7 @@ import { useAuth } from "./context/AuthProvider"
 
 const App = () => {
   const [authUser, setAuthUser] = useAuth();
-  console.log(authUser);
+ // console.log(authUser);
   return (
     <>
       <Routes>
