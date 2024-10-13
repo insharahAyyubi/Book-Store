@@ -31,11 +31,16 @@ app.use("/user", userRoute);
 // Serve static files from the /dist directory
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+console.log(__filename);
+console.log(__dirname);
+
 app.use(express.static(path.join(__dirname, '../Frontend/dist'))); // Adjust path as needed
 
 // Catch-all route to serve index.html for React Router
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../Frontend', 'index.html'));
+  const fullpath = path.join(__dirname, '../Frontend/dist', 'index.html');
+  console.log(fullpath);
+  res.sendFile(fullpath);
 });
 
 // Start the server
